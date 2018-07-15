@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="Continue">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;PCmember">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;pcmember"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Reviewer">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;pcmember_1"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;pcmember_2"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;pcmember_3"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;Paper">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;paper_1"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;paper_2"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;paper_3"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="String;Review">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;review_1"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;review_2"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;review_3"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;MakeReview"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Update"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments">
+                <Environment_Attributes Type="Environment Attributes" Value="String;ReviewStatus">
+                    <Environment_Attribute_Values
+                        Type="Environment Attribute Values" Value="String;Submitted"/>
+                    <Environment_Attribute_Values
+                        Type="Environment Attribute Values" Value="String;Not_Submitted"/>
+                </Environment_Attributes>
+            </Environments>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Reviewer;pcmember_1">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="PCmember;pcmember"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Reviewer;pcmember_3">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="PCmember;pcmember"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Reviewer;pcmember_2">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="PCmember;pcmember"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="PCmemberPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Paper;String;paper_1#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Paper;String;paper_1#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Paper;String;paper_1#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Paper;String;paper_1#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Paper;String;paper_2#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Paper;String;paper_2#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Paper;String;paper_2#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Paper;String;paper_2#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Paper;String;paper_3#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Paper;String;paper_3#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Paper;String;paper_3#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Paper;String;paper_3#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Review;String;review_1#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Review;String;review_1#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Review;String;review_1#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Review;String;review_1#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Review;String;review_2#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Review;String;review_2#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Review;String;review_2#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Review;String;review_2#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;PCmember;String;pcmember#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+                <ABAC Type="ABAC" Value="ReviewerPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Review;String;review_1#Action Attributes;Action;String;Update#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Update#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Review;String;review_2#Action Attributes;Action;String;Update#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Reviewer;String;pcmember_1#Resource Attributes;Paper;String;paper_1#Action Attributes;Action;String;MakeReview#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Reviewer;String;pcmember_2#Resource Attributes;Paper;String;paper_2#Action Attributes;Action;String;MakeReview#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Paper;String;paper_3#Action Attributes;Action;String;MakeReview#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 7#Subject Attributes;Reviewer;String;pcmember_3#Resource Attributes;Review;String;review_3#Action Attributes;Action;String;Read#Environment Attributes;ReviewStatus;String;Not_Submitted->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY"/>
+    </Property>
+</ACPT>

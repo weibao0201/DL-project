@@ -1,0 +1,19 @@
+# ACTS Test Suite Generation: Mon Jul 02 22:27:08 CDT 2018
+#  * represents don't care value 
+
+# Degree of interaction coverage: 2
+# Number of parameters: 14
+# Maximum number of values per parameter: 2
+# Number of configurations: 10
+# ****************************************************
+Federal,State,2,3,1,0,True,False,ISE,SLT,True,False,Current,Expired_None
+"True","True","False","False","False","False","False","False","False","False","False","False","False","False"
+"True","False","True","True","True","True","True","True","True","True","True","True","True","True"
+"False","True","True","False","True","False","True","False","True","False","True","False","True","False"
+"False","False","False","True","False","True","False","True","False","True","False","True","False","True"
+"False","True","False","True","True","False","True","True","False","False","True","True","False","False"
+"True","False","True","False","False","False","True","True","False","True","False","False","True","True"
+"False","True","True","False","True","True","False","False","True","True","False","True","False","False"
+"True","False","False","True","False","True","False","False","True","False","True","False","True","True"
+"True","True","False","False","False","False","True","True","False","True","True","True","False","True"
+"False","False","False","False","False","False","True","False","False","False","False","False","False","False"

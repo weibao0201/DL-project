@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="res">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/res/choco-exppar-3.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/commons-lang-2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/antlr-3.3-complete.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/antlr-4.0-complete.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/google-collections-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/choco-solver-3.3.3-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/guava-10.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/acts_cmd_2.92.jar!/" />
+      <root url="jar://$PROJECT_DIR$/res/jbool_expressions-1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

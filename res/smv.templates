@@ -1,0 +1,93 @@
+[mainModule]
+
+MODULE main
+
+	--	 variables
+	--	 NA is a non-applicable decision, which would be an initial decision before running NuSMV verification on a model
+	--	 None indicates a subject, which is not assigned to any user/role subject
+
+VAR
+	decision	: { Pending , Permit, Deny, Non-applicable};
+#ADD_State_VAR#
+#ADD_VAR#
+#ADD_FunctionCallInVAR#
+
+ASSIGN
+#ADD_COMBINATION_POLICY#
+	init (decision) := Pending ;
+	next (decision) := case
+#ADD_RULES#
+		1			: Deny;
+		esac;
+
+#ADD_WORKFLOW_STATE_ASSIGNS#
+#ADD_STATE_ASSIGNS#
+
+
+#ADD_PROPERTY#
+#ADD_FUNCTION#
+
+[mainModuleWhenMerge]
+
+MODULE main
+
+	--	 variables
+	--	 NA is a non-applicable decision, which would be an initial decision before running NuSMV verification on a model
+	--	 None indicates a subject, which is not assigned to any user/role subject
+
+VAR
+#ADD_VAR#
+
+ASSIGN
+#ADD_STATE_ASSIGNS#
+
+
+[subpolModuleWhenMerge]
+
+MODULE #subpolName#
+
+	--	 sub policies
+
+VAR
+	decision	: { Pending , Permit, Deny, Non-applicable};
+#ADD_State_VAR#
+#ADD_FunctionCallInVAR#
+
+ASSIGN
+
+	init (decision) := Pending ;
+	next (decision) := case
+#ADD_RULES#
+		1			: Deny;
+		esac;
+
+#ADD_WORKFLOW_STATE_ASSIGNS#
+#ADD_PROPERTY#
+#ADD_FUNCTION#
+
+[MultiLevelSubFuncModule]
+
+	MODULE #MultiLevelMappingFuncName#(subject, resource)
+
+	VAR
+		subjlevel: {#ADD_Level#};
+		reslevel: {#ADD_Level#};
+
+	DEFINE  ismatch := case
+			 subjlevel != -1 & reslevel != -1 : 1;
+			 1 : 0;
+			 esac;
+
+	ASSIGN
+			 init(subjlevel) := -1;
+			 next(subjlevel) :=
+				 case
+#ADD_SubjectLevelMapping#
+				 1 : subjlevel;
+				 esac;
+			 init(reslevel) := -1;
+			 next(reslevel) :=
+				 case
+#ADD_ResourceLevelMapping#
+				 1 : reslevel;
+				 esac;

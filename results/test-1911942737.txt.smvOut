@@ -1,0 +1,614 @@
+*** Note that the verification tool may produce no results due to faults (in user-specified models or properties). For example, undefined subject attributes in a property may cause errors during verification process. If you cannot find any results, please check the correctness of models and properties. Besides, users should not define more than one workflow models that may introduce ambiguity of process state.*** 
+*** This is NuSMV 2.4.3 (compiled on Tue May 22 14:08:54 UTC 2007)
+*** For more information on NuSMV see <http://nusmv.irst.itc.it>
+*** or email to <nusmv-users@irst.itc.it>.
+*** Please report bugs to <nusmv@irst.itc.it>.
+
+*** This version of NuSMV is linked to the MiniSat SAT solver. 
+*** See http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat
+*** Copyright (c) 2003-2005, Niklas Een, Niklas Sorensson 
+
+-- specification AG ((((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & Privacy_Category = ISE) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & Privacy_Category = ISE) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & Privacy_Category = ISE) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 1.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 1.2 <-
+-- Loop starts here
+-> State: 1.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 1.3 <-
+-> State: 1.3 <-
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 2.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 2.2 <-
+-- Loop starts here
+-> State: 2.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 2.3 <-
+-> State: 2.3 <-
+-- specification AG (((Government_Category = Federal & Privacy_Category = SLT) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 3.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = dummy
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 3.2 <-
+-- Loop starts here
+-> State: 3.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 3.3 <-
+-> State: 3.3 <-
+-- specification AG (((Government_Category = Federal & Privacy_Category = SLT) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 4.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 4.2 <-
+-- Loop starts here
+-> State: 4.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 4.3 <-
+-> State: 4.3 <-
+-- specification AG (((Government_Category = Federal & Privacy_Category = SLT) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 5.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 5.2 <-
+-- Loop starts here
+-> State: 5.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 5.3 <-
+-> State: 5.3 <-
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 6.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 6.2 <-
+-- Loop starts here
+-> State: 6.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 6.3 <-
+-> State: 6.3 <-
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 7.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 7.2 <-
+-- Loop starts here
+-> State: 7.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 7.3 <-
+-> State: 7.3 <-
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = State & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = State & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = State & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((CFR_Part_23_Training = Current & Privacy_Category = SLT) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 8.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 8.2 <-
+-- Loop starts here
+-> State: 8.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 8.3 <-
+-> State: 8.3 <-
+-- specification AG (((CFR_Part_23_Training = Current & Privacy_Category = SLT) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((CFR_Part_23_Training = Current & Privacy_Category = SLT) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 9.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 9.2 <-
+-- Loop starts here
+-> State: 9.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 9.3 <-
+-> State: 9.3 <-
+-- specification AG (CFR_Part_23_Training = Expired_None -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 10.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 10.2 <-
+-- Loop starts here
+-> State: 10.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 10.3 <-
+-> State: 10.3 <-
+-- specification AG (CFR_Part_23_Training = Expired_None -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 11.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 11.2 <-
+-- Loop starts here
+-> State: 11.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 11.3 <-
+-> State: 11.3 <-
+-- specification AG (CFR_Part_23_Training = Expired_None -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 12.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 12.2 <-
+-- Loop starts here
+-> State: 12.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 12.3 <-
+-> State: 12.3 <-
+-- specification AG ((((Privacy_Category = ISE & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Privacy_Category = ISE & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Privacy_Category = ISE & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Expired_None & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Expired_None & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((CFR_Part_23_Training = Expired_None & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((Government_Category = State & Privacy_Category = SLT) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 13.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 13.2 <-
+-- Loop starts here
+-> State: 13.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 13.3 <-
+-> State: 13.3 <-
+-- specification AG ((Government_Category = State & Privacy_Category = SLT) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 14.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 14.2 <-
+-- Loop starts here
+-> State: 14.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 14.3 <-
+-> State: 14.3 <-
+-- specification AG ((Government_Category = State & Privacy_Category = SLT) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 15.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 15.2 <-
+-- Loop starts here
+-> State: 15.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 15.3 <-
+-> State: 15.3 <-
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (read = False -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 16.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 16.2 <-
+-- Loop starts here
+-> State: 16.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 16.3 <-
+-> State: 16.3 <-
+-- specification AG (read = False -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (read = False -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 17.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 17.2 <-
+-- Loop starts here
+-> State: 17.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 17.3 <-
+-> State: 17.3 <-
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 18.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 18.2 <-
+-- Loop starts here
+-> State: 18.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 18.3 <-
+-> State: 18.3 <-
+-- specification AG ((((Government_Category = Federal & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 19.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 19.2 <-
+-- Loop starts here
+-> State: 19.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 19.3 <-
+-> State: 19.3 <-
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = State & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = Federal & Privacy_Category = ISE) & Privacy_Category = SLT) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 20.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 20.2 <-
+-- Loop starts here
+-> State: 20.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 20.3 <-
+-> State: 20.3 <-
+-- specification AG ((((Government_Category = State & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 21.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 21.2 <-
+-- Loop starts here
+-> State: 21.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 21.3 <-
+-> State: 21.3 <-
+-- specification AG ((Privacy_Category = ISE & read = True) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 22.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = dummy
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 22.2 <-
+-- Loop starts here
+-> State: 22.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 22.3 <-
+-> State: 22.3 <-
+-- specification AG ((Privacy_Category = ISE & read = True) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 23.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 23.2 <-
+-- Loop starts here
+-> State: 23.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 23.3 <-
+-> State: 23.3 <-
+-- specification AG ((Privacy_Category = ISE & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 24.1 <-
+  Government_Category = State
+  CFR_Part_23_Training = Expired_None
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 24.2 <-
+-- Loop starts here
+-> State: 24.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 24.3 <-
+-> State: 24.3 <-
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = SLT) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((Government_Category = Federal & CFR_Part_23_Training = Current) -> AF decision = Permit) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 25.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 25.2 <-
+-- Loop starts here
+-> State: 25.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 25.3 <-
+-> State: 25.3 <-
+-- specification AG ((Government_Category = Federal & CFR_Part_23_Training = Current) -> AF decision = Deny) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 26.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = ISE
+  read = True
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 26.2 <-
+-- Loop starts here
+-> State: 26.2 <-
+  ABAC_Policy_A.decision = Permit
+-> Input: 26.3 <-
+-> State: 26.3 <-
+-- specification AG ((Government_Category = Federal & CFR_Part_23_Training = Current) -> AF decision = Non-applicable) IN ABAC_Policy_A is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+-> State: 27.1 <-
+  Government_Category = Federal
+  CFR_Part_23_Training = Current
+  Assurance_Level = 0
+  Remote_Access = False
+  Privacy_Category = SLT
+  read = False
+  Process_State = 10
+  ABAC_Policy_A.decision = Pending
+-> Input: 27.2 <-
+-- Loop starts here
+-> State: 27.2 <-
+  ABAC_Policy_A.decision = Deny
+-> Input: 27.3 <-
+-> State: 27.3 <-
+-- specification AG ((((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((((Government_Category = State & CFR_Part_23_Training = Current) & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) & read = True) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Expired_None) & Privacy_Category = ISE) & read = False) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG ((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG ((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG ((((((Government_Category = Federal & Government_Category = State) & CFR_Part_23_Training = Current) & Privacy_Category = ISE) & Privacy_Category = SLT) & read = True) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+-- specification AG (((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) -> AF decision = Permit) IN ABAC_Policy_A is true
+-- specification AG (((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) -> AF decision = Deny) IN ABAC_Policy_A is true
+-- specification AG (((CFR_Part_23_Training = Current & CFR_Part_23_Training = Expired_None) & Privacy_Category = SLT) -> AF decision = Non-applicable) IN ABAC_Policy_A is true
+*** end of NuSMV verification 

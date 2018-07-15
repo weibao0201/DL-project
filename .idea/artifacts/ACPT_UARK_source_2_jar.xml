@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ACPT-UARK-source-2:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ACPT_UARK_source_2_jar</output-path>
+    <root id="archive" name="ACPT-UARK-source-2.jar">
+      <element id="module-output" name="ACPT-UARK-source-2" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/xerces.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jdom.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/xalan.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/xercesImpl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-1.2.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/sunxacml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/fireeye_1.0b6_cmd.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/sun_xacml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/choco-exppar-3.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/commons-lang-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/antlr-3.3-complete.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/antlr-4.0-complete.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/google-collections-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/choco-solver-3.3.3-with-dependencies.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/guava-10.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/acts_cmd_2.92.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/res/jbool_expressions-1.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

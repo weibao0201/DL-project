@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="Workflow test">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_3">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;1"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_2">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_1">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;3"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;People">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Student"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Teacher"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Dean"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;Non_Secret">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;1"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;Secret">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;2"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;Top_Secret">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;3"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="People;Dean">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="People;Teacher"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL">
+                <MULTILEVEL Type="MULTILEVEL" Value="Test">
+                    <MULTILEVELSUBJECTLEVELS
+                        Type="MULTILEVELSUBJECTLEVELS" Value="Subject Levels">
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_1;Integer#3"/>
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_2;Integer#2"/>
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_3;Integer#1"/>
+                    </MULTILEVELSUBJECTLEVELS>
+                    <MULTILEVELRESOURCELEVELS
+                        Type="MULTILEVELRESOURCELEVELS" Value="Resource Levels">
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;Top_Secret;Integer#3"/>
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;Secret;Integer#2"/>
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;Non_Secret;Integer#1"/>
+                    </MULTILEVELRESOURCELEVELS>
+                    <MULTILEVELRULES Type="MULTILEVELRULES" Value="Rules: First-applicable">
+                        <MULTILEVELRULES Type="MULTILEVELRULES" Value="no read up"/>
+                        <MULTILEVELRULES Type="MULTILEVELRULES" Value="no write down"/>
+                    </MULTILEVELRULES>
+                </MULTILEVEL>
+            </MULTILEVEL>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW">
+                <WORKFLOW Type="WORKFLOW" Value="Test">
+                    <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rules: First-applicable">
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 1#Process_State 1#Subject Attributes;People;String;Student#Resource Attributes;Non_Secret;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 2#Process_State 2#Subject Attributes;People;String;Teacher#Resource Attributes;Secret;Integer;2->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 2#Process_State 2#Subject Attributes;People;String;Dean#Resource Attributes;Secret;Integer;2->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 1#Process_State 3#Subject Attributes;People;String;Dean#Resource Attributes;Top_Secret;Integer;3->Permit"/>
+                    </WORKFLOWRULES>
+                </WORKFLOW>
+            </WORKFLOW>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="Policy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;People;String;Student#Resource Attributes;Non_Secret;Integer;1->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;People;String;Teacher#Resource Attributes;Secret;Integer;2->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;People;String;Dean#Resource Attributes;Secret;Integer;2->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;People;String;Dean#Resource Attributes;Top_Secret;Integer;3->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable">
+            <COMBINATION Type="COMBINATION" Value="WORKFLOW#Test"/>
+            <COMBINATION Type="COMBINATION" Value="MULTILEVEL#Test"/>
+            <COMBINATION Type="COMBINATION" Value="ABAC#Policy"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Rank_3 = 1) &amp; (People = Student) &amp; (Non_Secret = 1) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Rank_3, People, Non_Secret, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Rank_1 = 3) &amp; (People = Dean) &amp; (Secret = 2) &amp; (MLSDefaultAction = write)  -> decision =  Permit   [Rank_1, People, Secret, MLSDefaultAction]"/>
+        </ROOT>
+    </Property>
+</ACPT>

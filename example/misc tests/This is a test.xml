@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="This is a tes">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;Test">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Hold">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Test1"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Test2"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Test4"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;HIGHERPOWER">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;I_Have_the_power"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;OTHERHIGHPOWER">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;I_also_have_power"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Some_more_power">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;EVEN_MORE_POWER"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Last_lvl">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;OVER_9000"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;Files">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;1"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;2"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;3"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;4"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;5"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="HIGHERPOWER;I_Have_the_power">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Hold;Test1"/>
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Hold;Test2"/>
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Hold;Test4"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="OTHERHIGHPOWER;I_also_have_power">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Hold;Test1"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Some_more_power;EVEN_MORE_POWER">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="HIGHERPOWER;I_Have_the_power"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Last_lvl;OVER_9000">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Some_more_power;EVEN_MORE_POWER"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW">
+                <WORKFLOW Type="WORKFLOW" Value="Test">
+                    <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rules: First-applicable"/>
+                </WORKFLOW>
+            </WORKFLOW>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="Test">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable"/>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY"/>
+    </Property>
+</ACPT>

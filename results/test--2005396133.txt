@@ -1,0 +1,131 @@
+
+## The test result for ABAC#Policy A
+
+
+1: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Permit
+
+
+2: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Deny
+
+
+3: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Non-applicable
+
+
+4: (Government_Category = Federal)&(Government_Category = State)->decision = Permit
+
+
+5: (Government_Category = Federal)&(Government_Category = State)->decision = Deny
+
+
+6: (Government_Category = Federal)&(Government_Category = State)->decision = Non-applicable
+
+
+7: (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(read = True)->decision = Permit
+
+
+8: (Government_Category = Federal)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = False)->decision = Deny
+
+
+9: (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = SLT)&(read = True)->decision = Permit
+
+
+10: (Government_Category = State)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(read = False)->decision = Deny
+
+
+11: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(read = True)&(read = False)->decision = Permit
+
+
+12: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(read = True)&(read = False)->decision = Deny
+
+
+13: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(read = True)&(read = False)->decision = Non-applicable
+
+
+14: (Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Permit
+
+
+15: (Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Deny
+
+
+16: (Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Non-applicable
+
+
+17: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Permit
+
+
+18: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Deny
+
+
+19: (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Non-applicable
+
+
+20: (Government_Category = Federal)&(Government_Category = State)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Permit
+
+
+21: (Government_Category = Federal)&(Government_Category = State)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Deny
+
+
+22: (Government_Category = Federal)&(Government_Category = State)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Non-applicable
+
+
+23: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)->decision = Permit
+
+
+24: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)->decision = Deny
+
+
+25: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)->decision = Non-applicable
+
+
+26: (read = True)&(read = False)->decision = Permit
+
+
+27: (read = True)&(read = False)->decision = Deny
+
+
+28: (read = True)&(read = False)->decision = Non-applicable
+
+
+29: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)->decision = Permit
+
+
+30: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)->decision = Deny
+
+
+31: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)->decision = Non-applicable
+
+
+32: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Permit
+
+
+33: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Deny
+
+
+34: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Non-applicable
+
+
+35: (Government_Category = Federal)&(Government_Category = State)&(read = True)&(read = False)->decision = Permit
+
+
+36: (Government_Category = Federal)&(Government_Category = State)&(read = True)&(read = False)->decision = Deny
+
+
+37: (Government_Category = Federal)&(Government_Category = State)&(read = True)&(read = False)->decision = Non-applicable
+
+
+38: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Permit
+
+
+39: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Deny
+
+
+40: (CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Non-applicable
+
+
+41: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Permit
+
+
+42: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Deny
+
+
+43: (Government_Category = Federal)&(Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT)->decision = Non-applicable

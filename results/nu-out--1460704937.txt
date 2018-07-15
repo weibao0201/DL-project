@@ -1,0 +1,11 @@
+*** Note that the verification tool may produce no results due to faults (in user-specified models or properties). For example, undefined subject attributes in a property may cause errors during verification process. If you cannot find any results, please check the correctness of models and properties. Besides, users should not define more than one workflow models that may introduce ambiguity of process state.*** 
+*** This is NuSMV 2.4.3 (compiled on Tue May 22 14:08:54 UTC 2007)
+*** For more information on NuSMV see <http://nusmv.irst.itc.it>
+*** or email to <nusmv-users@irst.itc.it>.
+*** Please report bugs to <nusmv@irst.itc.it>.
+
+*** This version of NuSMV is linked to the MiniSat SAT solver. 
+*** See http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat
+*** Copyright (c) 2003-2005, Niklas Een, Niklas Sorensson 
+
+*** end of NuSMV verification 

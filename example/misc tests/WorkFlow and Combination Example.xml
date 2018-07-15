@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="Presentaiton">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_1">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;3"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_2">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Rank_3">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;1"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Postion">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Secretary"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Accountant"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Boss"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Inventory_Management"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;Is_Department_Head">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;R1_File">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;3"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;R2_File">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;2"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;R3_File">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;1"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read_and_add_note"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read_and_edit"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Boss_Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Accept"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Deny"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Rank_2;2">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Rank_1;3"/>
+                </Inheritance_Attributes>
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Postion;Boss">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Postion;Secretary"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL">
+                <MULTILEVEL Type="MULTILEVEL" Value="Rank_System">
+                    <MULTILEVELSUBJECTLEVELS
+                        Type="MULTILEVELSUBJECTLEVELS" Value="Subject Levels">
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_1;Integer#3"/>
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_2;Integer#3"/>
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Rank_3;Integer#1"/>
+                    </MULTILEVELSUBJECTLEVELS>
+                    <MULTILEVELRESOURCELEVELS
+                        Type="MULTILEVELRESOURCELEVELS" Value="Resource Levels">
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;R1_File;Integer#3"/>
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;R2_File;Integer#2"/>
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;R3_File;Integer#1"/>
+                    </MULTILEVELRESOURCELEVELS>
+                    <MULTILEVELRULES Type="MULTILEVELRULES" Value="Rules: First-applicable">
+                        <MULTILEVELRULES Type="MULTILEVELRULES" Value="no read up"/>
+                        <MULTILEVELRULES Type="MULTILEVELRULES" Value="no write down"/>
+                    </MULTILEVELRULES>
+                </MULTILEVEL>
+            </MULTILEVEL>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW">
+                <WORKFLOW Type="WORKFLOW" Value="Boss_Create">
+                    <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rules: First-applicable">
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 1#Process_State 1#Subject Attributes;Postion;String;Boss#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 2#Process_State 1#Subject Attributes;Postion;String;Boss#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 3#Process_State 1#Subject Attributes;Postion;String;Boss#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 8#Process_State 2#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 9#Process_State 2#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 10#Process_State 2#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read_and_edit->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 11#Process_State 2#Subject Attributes;Rank_1;Integer;3#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 11#Process_State 2#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 12#Process_State 2#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 13#Process_State 2#Subject Attributes;Rank_3;Integer;1#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 14#Process_State 2#Subject Attributes;Rank_1;Integer;3#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 14#Process_State 2#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 15#Process_State 2#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 16#Process_State 2#Subject Attributes;Rank_3;Integer;1#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 17#Process_State 3#Subject Attributes;Postion;String;Accountant#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 19#Process_State 3#Subject Attributes;Postion;String;Accountant#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read_and_edit->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 20#Process_State 3#Subject Attributes;Postion;String;Accountant#Subject Attributes;Is_Department_Head;Boolean;True#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 21#Process_State 3#Subject Attributes;Rank_1;Integer;3#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 21#Process_State 3#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 22#Process_State 3#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Accountant#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 23#Process_State 3#Subject Attributes;Rank_3;Integer;1#Subject Attributes;Postion;String;Accountant#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 24#Process_State 3#Subject Attributes;Rank_1;Integer;3#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 24#Process_State 3#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 25#Process_State 3#Subject Attributes;Rank_2;Integer;2#Subject Attributes;Postion;String;Accountant#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 26#Process_State 3#Subject Attributes;Rank_3;Integer;1#Subject Attributes;Postion;String;Accountant#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 27#Process_State 4#Subject Attributes;Postion;String;Secretary#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 27#Process_State 4#Subject Attributes;Postion;String;Boss#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 28#Process_State 4#Subject Attributes;Postion;String;Secretary#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 28#Process_State 4#Subject Attributes;Postion;String;Boss#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 29#Process_State 2#Subject Attributes;Postion;String;Boss#Action Attributes;Boss_Action;String;Deny->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 30#Process_State 3#Subject Attributes;Postion;String;Boss#Action Attributes;Boss_Action;String;Deny->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 31#Process_State 4#Subject Attributes;Postion;String;Boss#Action Attributes;Boss_Action;String;Deny->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 32#Process_State 5#Subject Attributes;Postion;String;Boss#Action Attributes;Boss_Action;String;Deny->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 33#Process_State 5#Subject Attributes;Postion;String;Boss#Action Attributes;Boss_Action;String;Accept->Permit"/>
+                    </WORKFLOWRULES>
+                </WORKFLOW>
+            </WORKFLOW>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="Policy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;Postion;String;Secretary#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;Postion;String;Boss#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;Postion;String;Secretary#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;Postion;String;Boss#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;Postion;String;Secretary#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;Postion;String;Boss#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 12#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 13#Subject Attributes;Postion;String;Accountant#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 14#Subject Attributes;Postion;String;Accountant#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 15#Subject Attributes;Postion;String;Boss#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 16#Subject Attributes;Postion;String;Boss#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 17#Subject Attributes;Postion;String;Boss#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 18#Subject Attributes;Postion;String;Boss#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 19#Subject Attributes;Postion;String;Boss#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 20#Subject Attributes;Postion;String;Boss#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 21#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 22#Subject Attributes;Postion;String;Inventory_Management#Subject Attributes;Is_Department_Head;Boolean;True#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 23#Subject Attributes;Postion;String;Inventory_Management#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_add_note->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 24#Subject Attributes;Postion;String;Accountant#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 25#Subject Attributes;Postion;String;Accountant#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 26#Subject Attributes;Postion;String;Accountant#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 27#Subject Attributes;Postion;String;Boss#Resource Attributes;R1_File;Integer;3#Action Attributes;MLSDefaultAction;String;read_and_edit->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 28#Subject Attributes;Postion;String;Boss#Resource Attributes;R2_File;Integer;2#Action Attributes;MLSDefaultAction;String;read_and_edit->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 29#Subject Attributes;Postion;String;Boss#Resource Attributes;R3_File;Integer;1#Action Attributes;MLSDefaultAction;String;read_and_edit->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 30#Subject Attributes;Postion;String;Boss#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable">
+            <COMBINATION Type="COMBINATION" Value="WORKFLOW#Boss_Create"/>
+            <COMBINATION Type="COMBINATION" Value="MULTILEVEL#Rank_System"/>
+            <COMBINATION Type="COMBINATION" Value="ABAC#Policy"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Process_State = 3) &amp; (Postion = Boss) &amp; (R3_File = 1) &amp; (Boss_Action = Accept)  -> decision =  Permit   [Postion, R3_File, Boss_Action]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Rank_3 = 1) &amp; (Postion = Inventory_Management) &amp; (R2_File = 2) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Rank_3, Postion, R2_File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Process_State = 3) &amp; (Postion = Accountant) &amp; (Is_Department_Head = True) &amp; (R3_File = 1) &amp; (MLSDefaultAction = read_and_edit)  -> decision =  Permit   [Postion, Is_Department_Head, R3_File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Rank_2 = 2) &amp; (Postion = Inventory_Management) &amp; (R3_File = 1) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Rank_2, Postion, R3_File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Process_State = 3) &amp; (Postion = Boss) &amp; (R1_File = 3) &amp; (MLSDefaultAction = write)  -> decision =  Permit   [Postion, R1_File, MLSDefaultAction]"/>
+        </ROOT>
+    </Property>
+</ACPT>

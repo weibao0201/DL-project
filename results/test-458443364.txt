@@ -1,0 +1,74 @@
+
+## The test result for ABAC#Policy B
+
+
+1: (Government_Category = Federal)&(Government_Category = State)->decision = Permit
+
+
+2: (Government_Category = Federal)&(Government_Category = State)->decision = Deny
+
+
+3: (Government_Category = Federal)&(Government_Category = State)->decision = Non-applicable
+
+
+4: (Government_Category = Federal)&(Assurance_Level = 2)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Permit
+
+
+5: (Government_Category = Federal)&(Assurance_Level = 2)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Deny
+
+
+6: (Government_Category = Federal)&(Assurance_Level = 2)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False)->decision = Non-applicable
+
+
+7: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Remote_Access = True)&(Privacy_Category = ISE)&(read = True)->decision = Permit
+
+
+8: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Remote_Access = True)&(Privacy_Category = ISE)&(read = True)->decision = Deny
+
+
+9: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Remote_Access = True)&(Privacy_Category = ISE)&(read = True)->decision = Non-applicable
+
+
+10: (Assurance_Level = 3)&(Assurance_Level = 0)&(Remote_Access = False)&(Privacy_Category = SLT)&(read = False)->decision = Permit
+
+
+11: (Assurance_Level = 3)&(Assurance_Level = 0)&(Remote_Access = False)&(Privacy_Category = SLT)&(read = False)->decision = Deny
+
+
+12: (Assurance_Level = 3)&(Assurance_Level = 0)&(Remote_Access = False)&(Privacy_Category = SLT)&(read = False)->decision = Non-applicable
+
+
+13: (Government_Category = State)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Remote_Access = True)&(Remote_Access = False)&(read = True)&(read = False)->decision = Permit
+
+
+14: (Government_Category = State)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Remote_Access = True)&(Remote_Access = False)&(read = True)&(read = False)->decision = Deny
+
+
+15: (Government_Category = State)&(Assurance_Level = 3)&(Assurance_Level = 1)&(Remote_Access = True)&(Remote_Access = False)&(read = True)&(read = False)->decision = Non-applicable
+
+
+16: (Government_Category = Federal)&(Assurance_Level = 2)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = SLT)->decision = Permit
+
+
+17: (Government_Category = Federal)&(Assurance_Level = 2)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = SLT)->decision = Deny
+
+
+18: (Government_Category = Federal)&(Assurance_Level = 2)&(Remote_Access = True)&(Remote_Access = False)&(Privacy_Category = SLT)->decision = Non-applicable
+
+
+19: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Permit
+
+
+20: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Deny
+
+
+21: (Government_Category = State)&(Assurance_Level = 2)&(Assurance_Level = 1)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = False)->decision = Non-applicable
+
+
+22: (Assurance_Level = 3)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(read = True)->decision = Permit
+
+
+23: (Assurance_Level = 3)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(read = True)->decision = Deny
+
+
+24: (Assurance_Level = 3)&(Assurance_Level = 0)&(Privacy_Category = ISE)&(read = True)->decision = Non-applicable

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="MyProject">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Student">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Bruce"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;John"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Don"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;IsValidated">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;IsTeachsAid">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;HasTeacher">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Mr_Jax"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Ms_Lux"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Mr_Draven"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;File">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;1"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;2"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;3"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Student;Bruce">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Student;John"/>
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="Student;Don"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="Policy_1">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 15#Subject Attributes;IsValidated;Boolean;True#Subject Attributes;HasTeacher;String;Mr_Jax#Resource Attributes;File;Integer;1#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 16#Subject Attributes;IsValidated;Boolean;True#Subject Attributes;HasTeacher;String;Ms_Lux#Resource Attributes;File;Integer;2#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 17#Subject Attributes;IsValidated;Boolean;True#Subject Attributes;HasTeacher;String;Mr_Draven#Resource Attributes;File;Integer;3#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 18#Subject Attributes;Student;String;John#Subject Attributes;IsTeachsAid;Boolean;True#Subject Attributes;HasTeacher;String;Mr_Jax#Resource Attributes;File;Integer;1#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 18#Subject Attributes;Student;String;Bruce#Subject Attributes;IsTeachsAid;Boolean;True#Subject Attributes;HasTeacher;String;Mr_Jax#Resource Attributes;File;Integer;1#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 19#Subject Attributes;Student;String;Don#Subject Attributes;IsTeachsAid;Boolean;True#Subject Attributes;HasTeacher;String;Ms_Lux#Resource Attributes;File;Integer;2#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 19#Subject Attributes;Student;String;Bruce#Subject Attributes;IsTeachsAid;Boolean;True#Subject Attributes;HasTeacher;String;Ms_Lux#Resource Attributes;File;Integer;2#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 20#Subject Attributes;Student;String;Bruce#Subject Attributes;IsTeachsAid;Boolean;True#Subject Attributes;HasTeacher;String;Mr_Draven#Resource Attributes;File;Integer;3#Action Attributes;MLSDefaultAction;String;write->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 21#Subject Attributes;IsValidated;Boolean;False#Action Attributes;MLSDefaultAction;String;read->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Bruce) &amp; (IsValidated = True) &amp; (IsTeachsAid = True) &amp; (HasTeacher = Ms_Lux) &amp; (File = 2) &amp; (MLSDefaultAction = write)  -> decision =  Permit"/>
+        </ROOT>
+    </Property>
+</ACPT>

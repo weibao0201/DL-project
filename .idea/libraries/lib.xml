@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/xerces.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xalan.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xercesImpl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sunxacml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fireeye_1.0b6_cmd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sun_xacml.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

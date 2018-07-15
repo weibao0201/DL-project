@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="Workflow Example">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;FA_Employee">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;FA_Junior"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;FA_Senior"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;FA_GM">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;FA_Manager"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;PurchaseOrder">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PurchaseOrder_One"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Create"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Review"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Approve"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW">
+                <WORKFLOW Type="WORKFLOW" Value="EmployeePolicy">
+                    <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rules: First-applicable">
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 1#Process_State 1#Subject Attributes;FA_Employee;String;FA_Junior#Resource Attributes;PurchaseOrder;String;PurchaseOrder_One#Action Attributes;Action;String;Create->Permit"/>
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 2#Process_State 2#Subject Attributes;FA_Employee;String;FA_Senior#Resource Attributes;PurchaseOrder;String;PurchaseOrder_One#Action Attributes;Action;String;Review->Permit"/>
+                    </WORKFLOWRULES>
+                </WORKFLOW>
+                <WORKFLOW Type="WORKFLOW" Value="ManagerPolicy">
+                    <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rules: First-applicable">
+                        <WORKFLOWRULES Type="WORKFLOWRULES" Value="Rule 1#Process_State 3#Subject Attributes;FA_GM;String;FA_Manager#Resource Attributes;PurchaseOrder;String;PurchaseOrder_One#Action Attributes;Action;String;Approve->Permit"/>
+                    </WORKFLOWRULES>
+                </WORKFLOW>
+            </WORKFLOW>
+            <ABAC Type="ABAC" Value="ABAC"/>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable">
+            <COMBINATION Type="COMBINATION" Value="WORKFLOW#ManagerPolicy"/>
+            <COMBINATION Type="COMBINATION" Value="WORKFLOW#EmployeePolicy"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Process_State = 3) &amp; (FA_GM = FA_Manager) &amp; (PurchaseOrder = PurchaseOrder_One) &amp; (Action = Permit)  -> decision =  Permit   [FA_GM, PurchaseOrder, Action]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Process_State = 1) &amp; (FA_GM = FA_Manager) &amp; (PurchaseOrder = PurchaseOrder_One) &amp; (Action = Create)  -> decision =  Permit   [FA_GM, PurchaseOrder, Action]"/>
+        </ROOT>
+    </Property>
+</ACPT>

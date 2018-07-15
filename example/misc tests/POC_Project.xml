@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="POC_Project">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;IsUS_Citizenship">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;OrgID">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;USN"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;USMC"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;PayGrade">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;3"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;5"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;7"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;9"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Location">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Yellow_Country"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Orange_Country"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Green_Country"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;5th_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;7th_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;2nd_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;3rd_Fleet"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Extended_Group">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;CTF_153"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;5th_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;2nd_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;3rd_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;7th_Fleet"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;CTF_123"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;CFG_1"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;DutyCode">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2201"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2301"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2206"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2207"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2101"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2803"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2302"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2303"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;0302"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;5974"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;POC_Resources">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;5th_CAS_Portal_Page"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;CSG2_CAS_Home_page"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;5th_Officer_Training_List"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;2nd_CAS_Portal_Home_Page"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;CSG2_Training_List"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;5th_Personal_Training_List"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;POC_Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Create"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Edit"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Search"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance">
+                <Inheritance_Attributes Type="Inheritance Attributes" Value="Extended_Group;7th_Fleet">
+                    <Inheritance_Attributes_Values
+                        Type="Inheritance Attributes Values" Value="PayGrade;3"/>
+                </Inheritance_Attributes>
+            </Inheritance>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="POC_Policy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 7#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 8#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;7#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 12#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;Yellow_Country#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 13#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 14#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;CTF_153#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 15#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2101#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 16#Subject Attributes;IsUS_Citizenship;Boolean;True#Subject Attributes;PayGrade;Integer;9#Subject Attributes;Location;String;5th_Fleet#Subject Attributes;Extended_Group;String;5th_Fleet#Subject Attributes;DutyCode;Integer;2201#Resource Attributes;POC_Resources;String;5th_CAS_Portal_Page#Action Attributes;POC_Action;String;Read->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (IsUS_Citizenship = True) &amp; (OrgID = USN) &amp; (PayGrade = 7) &amp; (Location = Yellow_Country) &amp; (Extended_Group = CTF_153) &amp; (DutyCode = 2301) &amp; (POC_Resources = 5th_CAS_Portal_Page) &amp; (POC_Action = Read)  -> ( decision = Permit)"/>
+        </ROOT>
+    </Property>
+</ACPT>

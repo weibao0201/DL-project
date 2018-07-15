@@ -1,0 +1,83 @@
+
+
+MODULE main
+
+	--	 variables
+	--	 NA is a non-applicable decision, which would be an initial decision before running NuSMV verification on a model
+	--	 None indicates a subject, which is not assigned to any user/role subject
+
+VAR
+	Government_Category	: { dummy	,	Federal	,	State	};	
+	CFR_Part_23_Training	: { dummy	,	Current	,	Expired_None	};	
+	Assurance_Level	: { dummy	,	2	,	3	,	1	,	0	};	
+	Remote_Access	: { dummy	,	True	,	False	};	
+	Privacy_Category	: { dummy	,	ISE	,	SLT	};	
+	read	: { dummy	,	True	,	False	};	
+
+
+	Process_State	: {1,2,3,4,5,6,7,8,9,10};
+	ABAC_Policy_A : ABAC_Policy_A(Government_Category,CFR_Part_23_Training,Assurance_Level,Remote_Access,Privacy_Category,read, Process_State);
+
+ASSIGN
+	next (Government_Category) :=	Government_Category	;	
+	next (CFR_Part_23_Training) :=	CFR_Part_23_Training	;	
+	next (Assurance_Level) :=	Assurance_Level	;	
+	next (Remote_Access) :=	Remote_Access	;	
+	next (Privacy_Category) :=	Privacy_Category	;	
+	next (read) :=	read	;	
+
+
+
+
+
+MODULE ABAC_Policy_A(Government_Category,CFR_Part_23_Training,Assurance_Level,Remote_Access,Privacy_Category,read, Process_State)
+
+	--	 sub policies
+
+VAR
+	decision	: { Pending , Permit, Deny, Non-applicable};
+
+
+
+ASSIGN
+
+	init (decision) := Pending ;
+	next (decision) := case
+		CFR_Part_23_Training = Current	&	Privacy_Category = ISE	&	read = True	:	Permit	;	
+		CFR_Part_23_Training = Current	&	Privacy_Category = ISE	&	read = True	:	Permit	;	
+		CFR_Part_23_Training = Expired_None	&	Privacy_Category = ISE	&	read = True	:	Permit	;	
+		CFR_Part_23_Training = Current	&	Privacy_Category = SLT	&	read = True	:	Permit	;	
+		CFR_Part_23_Training = Current	&	Privacy_Category = SLT	&	read = True	:	Permit	;	
+		CFR_Part_23_Training = Expired_None	&	Privacy_Category = SLT	&	read = True	:	Permit	;	
+
+		1			: Deny;
+		esac;
+
+
+
+SPEC AG ( (Government_Category = Federal)&(Government_Category = State) -> AF decision = Permit)
+SPEC AG ( (Government_Category = Federal)&(Government_Category = State) -> AF decision = Deny)
+SPEC AG ( (Government_Category = Federal)&(Government_Category = State) -> AF decision = Non-applicable)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False) -> AF decision = Permit)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False) -> AF decision = Deny)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(Privacy_Category = SLT)&(read = True)&(read = False) -> AF decision = Non-applicable)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(read = True) -> AF decision = Permit)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(read = True) -> AF decision = Deny)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(read = True) -> AF decision = Non-applicable)
+SPEC AG ( (CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = False) -> AF decision = Permit)
+SPEC AG ( (CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = False) -> AF decision = Deny)
+SPEC AG ( (CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = False) -> AF decision = Non-applicable)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(read = True)&(read = False) -> AF decision = Permit)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(read = True)&(read = False) -> AF decision = Deny)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = ISE)&(read = True)&(read = False) -> AF decision = Non-applicable)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(read = True)&(read = False) -> AF decision = Permit)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(read = True)&(read = False) -> AF decision = Deny)
+SPEC AG ( (Government_Category = Federal)&(CFR_Part_23_Training = Current)&(read = True)&(read = False) -> AF decision = Non-applicable)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT) -> AF decision = Permit)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT) -> AF decision = Deny)
+SPEC AG ( (Government_Category = State)&(CFR_Part_23_Training = Current)&(Privacy_Category = ISE)&(Privacy_Category = SLT) -> AF decision = Non-applicable)
+SPEC AG ( (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = True) -> AF decision = Permit)
+SPEC AG ( (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = True) -> AF decision = Deny)
+SPEC AG ( (CFR_Part_23_Training = Current)&(CFR_Part_23_Training = Expired_None)&(Privacy_Category = SLT)&(read = True) -> AF decision = Non-applicable)
+
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="University&amp;Hospital">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Prefessor">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Dr_Li"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Dr_Wang"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Doctor">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Doctor_A"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;MedicalRecords">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;StudentA_Record"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;StudentB_Record"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;StudentC_Record"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;StudentD_Record"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Read"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="ProfessorPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Prefessor;String;Dr_Li#Resource Attributes;MedicalRecords;String;StudentA_Record#Action Attributes;Action;String;Read->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Prefessor;String;Dr_Li#Resource Attributes;MedicalRecords;String;StudentB_Record#Action Attributes;Action;String;Read->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Prefessor;String;Dr_Li#Resource Attributes;MedicalRecords;String;StudentC_Record#Action Attributes;Action;String;Read->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Prefessor;String;Dr_Wang#Resource Attributes;MedicalRecords;String;StudentA_Record#Action Attributes;Action;String;Read->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Prefessor;String;Dr_Wang#Resource Attributes;MedicalRecords;String;StudentB_Record#Action Attributes;Action;String;Read->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Prefessor;String;Dr_Wang#Resource Attributes;MedicalRecords;String;StudentC_Record#Action Attributes;Action;String;Read->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+                <ABAC Type="ABAC" Value="DoctorPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Doctor;String;Doctor_A#Resource Attributes;MedicalRecords;String;StudentA_Record#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Doctor;String;Doctor_A#Resource Attributes;MedicalRecords;String;StudentB_Record#Action Attributes;Action;String;Read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Doctor;String;Doctor_A#Resource Attributes;MedicalRecords;String;StudentC_Record#Action Attributes;Action;String;Read->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable">
+            <COMBINATION Type="COMBINATION" Value="ABAC#ProfessorPolicy"/>
+            <COMBINATION Type="COMBINATION" Value="ABAC#DoctorPolicy"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Prefessor = Dr_Li) &amp; (MedicalRecords = StudentD_Record) &amp; (Action = Read)  -> decision =  Permit   [Prefessor, MedicalRecords, Action]"/>
+        </ROOT>
+    </Property>
+</ACPT>

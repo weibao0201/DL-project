@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os" PolicySetId="MergedPolicySet" PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable">
+    <Target/>
+      <Policy PolicyId="ML" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+        <Target>
+			<Subjects>
+			<Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Student_A" DataType="http://www.w3.org/2001/XMLSchema#integer" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+			<Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#integer" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+		</Target
+       <Rule RuleId="rule_1" Effect="Deny">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File2" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_2" Effect="Permit">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File2" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_3" Effect="Deny">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File1" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_4" Effect="Permit">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File1" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_5" Effect="Deny">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="Student_A" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File2" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_6" Effect="Permit">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="Student_A" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File2" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_7" Effect="Deny">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-greater-than">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="Student_A" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File1" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+       <Rule RuleId="rule_8" Effect="Permit">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-less-than-or-equal">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="Student_A" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="R_File1" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
+              </Apply>
+            </Condition>
+        </Rule>
+      </Policy>
+</PolicySet>

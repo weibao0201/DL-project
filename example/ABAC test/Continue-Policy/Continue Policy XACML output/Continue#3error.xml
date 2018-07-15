@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicySet xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os" PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable" PolicySetId="MergedPolicySet">
+  <Target />
+  <PolicySet PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable" PolicySetId="PCmemberPolicy">
+    <Target />
+    <Policy PolicyId="PCmemberPolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+      <Target />
+      <Rule Effect="Permit" RuleId="rule_1">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_1</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_2">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_2</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_3">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_3</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+      </Rule>
+      <Rule Effect="Deny" RuleId="rule_4">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_1</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Deny" RuleId="rule_5">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_2</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Deny" RuleId="rule_6">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="PCmember" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_3</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+    </Policy>
+  </PolicySet>
+  <PolicySet PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable" PolicySetId="ReviewerPolicy">
+    <Target />
+    <Policy PolicyId="ReviewerPolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+      <Target />
+      <Rule Effect="Permit" RuleId="rule_7">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_1</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_1</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Update</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_8">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_2</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_2</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Update</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_9">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_3</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_3</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Update</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_10">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_1</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_1</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MakeReview</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_11">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_2</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_2</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MakeReview</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_12">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_3</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">paper_3</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Paper" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">MakeReview</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+      <Rule Effect="Permit" RuleId="rule_13">
+        <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">pcmember_3</AttributeValue>
+                <SubjectAttributeDesignator AttributeId="Reviewer" DataType="http://www.w3.org/2001/XMLSchema#string" SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" />
+              </SubjectMatch>
+            </Subject>
+          </Subjects>
+          <Resources>
+            <Resource>
+              <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">review_4</AttributeValue>
+                <ResourceAttributeDesignator AttributeId="Review" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ResourceMatch>
+            </Resource>
+          </Resources>
+          <Actions>
+            <Action>
+              <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Update</AttributeValue>
+                <ActionAttributeDesignator AttributeId="Access" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </ActionMatch>
+            </Action>
+          </Actions>
+        </Target>
+        <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+            <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-one-and-only">
+                <EnvironmentAttributeDesignator AttributeId="ReviewStatus" DataType="http://www.w3.org/2001/XMLSchema#string" />
+              </Apply>
+              <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Not_Submitted</AttributeValue>
+            </Apply>
+          </Apply>
+        </Condition>
+      </Rule>
+    </Policy>
+	<!-- Include permissions for the PCmember role -->  
+  <PolicySetIdReference>PCmemberPolicy</PolicySetIdReference> 
+  </PolicySet>
+</PolicySet>
+

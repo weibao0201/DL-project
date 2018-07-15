@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="University">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Grad">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;GraduateStudent_A"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;GraduateStudent_B"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;GraduateStudent_C"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;TA">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;GraduateStudent_C"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;TA_Two"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;GradeBook">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;GradeBook_One"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;GradeBook_Two"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;viewGrade"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;assignGrade"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="GradPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Grad;String;GraduateStudent_A#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;viewGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Grad;String;GraduateStudent_A#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;assignGrade->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Grad;String;GraduateStudent_A#Resource Attributes;GradeBook;String;GradeBook_Two->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Grad;String;GraduateStudent_B#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;viewGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 7#Subject Attributes;Grad;String;GraduateStudent_B#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;assignGrade->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 8#Subject Attributes;Grad;String;GraduateStudent_B#Resource Attributes;GradeBook;String;GradeBook_Two->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;Grad;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_Two#Action Attributes;Action;String;viewGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;Grad;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_One->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;Grad;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_Two#Action Attributes;Action;String;assignGrade->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+                <ABAC Type="ABAC" Value="TAPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;TA;String;TA_Two#Resource Attributes;GradeBook;String;GradeBook_Two#Action Attributes;Action;String;viewGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;TA;String;TA_Two#Resource Attributes;GradeBook;String;GradeBook_Two#Action Attributes;Action;String;assignGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;TA;String;TA_Two#Resource Attributes;GradeBook;String;GradeBook_One->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 7#Subject Attributes;TA;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;viewGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 8#Subject Attributes;TA;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_One#Action Attributes;Action;String;assignGrade->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;TA;String;GraduateStudent_C#Resource Attributes;GradeBook;String;GradeBook_Two->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY"/>
+    </Property>
+</ACPT>

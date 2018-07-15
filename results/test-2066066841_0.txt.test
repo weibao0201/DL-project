@@ -1,0 +1,17 @@
+# ACTS Test Suite Generation: Wed Jun 13 23:08:20 CDT 2018
+#  * represents don't care value 
+
+# Degree of interaction coverage: 2
+# Number of parameters: 8
+# Maximum number of values per parameter: 2
+# Number of configurations: 8
+# ****************************************************
+Federal,State,Current,Expired_None,ISE,SLT,True,False
+"True","True","False","False","False","False","False","False"
+"True","False","True","True","True","True","True","True"
+"False","True","True","False","True","False","True","False"
+"False","False","False","True","False","True","False","True"
+"True","True","False","True","True","False","True","True"
+"False","False","True","False","False","False","True","True"
+"True","True","True","False","True","True","False","False"
+"False","False","True","True","True","True","False","False"

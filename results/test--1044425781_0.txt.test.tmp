@@ -1,0 +1,51 @@
+[System]
+Name: Fireeye Input
+
+
+
+[Parameter]
+-- The list of manager
+	manager (enum) :True,False
+
+-- The list of PatientA_OldMedicalRecords
+	PatientA_OldMedicalRecords (enum) :True,False
+
+-- The list of PatientB_OldMedicalRecords
+	PatientB_OldMedicalRecords (enum) :True,False
+
+-- The list of PatientC_OldMedicalRecords
+	PatientC_OldMedicalRecords (enum) :True,False
+
+-- The list of View
+	View (enum) :True,False
+
+-- The list of Add
+	Add (enum) :True,False
+
+-- The list of PatientA_PrivateNotes
+	PatientA_PrivateNotes (enum) :True,False
+
+-- The list of PatientB_PrivateNotes
+	PatientB_PrivateNotes (enum) :True,False
+
+-- The list of PatientC_PrivateNotes
+	PatientC_PrivateNotes (enum) :True,False
+
+-- The list of PatientA_PersonalInfo
+	PatientA_PersonalInfo (enum) :True,False
+
+-- The list of PatientC_PersonalInfo
+	PatientC_PersonalInfo (enum) :True,False
+
+-- The list of PatientB_PersonalInfo
+	PatientB_PersonalInfo (enum) :True,False
+
+[Relation]
+
+
+[Constraint]
+
+
+[Misc]
+
+

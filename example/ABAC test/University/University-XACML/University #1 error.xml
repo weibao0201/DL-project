@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?><!--## This XACML is the collection of policies (e.g., POLICY 1) to be merged (by users).-->
+<PolicySet xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os" PolicySetId="MergedPolicySet" PolicyCombiningAlgId="urn:oasis:names:tc:xacml:1.0:policy-combining-algorithm:first-applicable">
+    <Target/>
+<!--## POLICY START1-->
+      <Policy PolicyId="GradPolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+        <Target/>
+<!-- ABAC Model: GradPolicy-->
+       <Rule RuleId="rule_1" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_A</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">viewGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_2" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_A</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">assignGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_3" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_A</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_4" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_B</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">viewGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_5" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_B</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">assignGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_6" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_B</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_7" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">viewGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_8" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_9" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Grad" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">assignGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+      </Policy>
+<!--## POLICY 1 END-->
+<!--## POLICY 2 START-->
+      <Policy PolicyId="TAPolicy" RuleCombiningAlgId="urn:oasis:names:tc:xacml:1.0:rule-combining-algorithm:first-applicable">
+        <Target/>
+<!-- ABAC Model: TAPolicy-->
+       <Rule RuleId="rule_10" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TA_Two</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">viewGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_11" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TA_Two</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">assignGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_12" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TA_Two</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_13" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">viewGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_14" Effect="Permit">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_One</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+          <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">assignGrade</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="Action" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+          </Actions>
+          </Target>
+	  
+        </Rule>
+       <Rule RuleId="rule_15" Effect="Deny">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GraduateStudent_C</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="TA" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+          </Subjects>
+          <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">GradeBook_Two</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="GradeBook" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+          </Resources>
+
+          </Target>
+	  
+        </Rule>
+      </Policy>
+<!--## POLICY 2 END-->
+</PolicySet>

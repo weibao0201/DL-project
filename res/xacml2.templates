@@ -1,0 +1,176 @@
+[PolicySet Start]
+<PolicySet xmlns="urn:oasis:names:tc:xacml:2.0:policy:schema:os" PolicySetId="POLSETID" PolicyCombiningAlgId="POLSETCOMBINATION">
+    <Target/>
+[PolicySet End]
+</PolicySet>
+[Policy Start]
+      <Policy PolicyId="POLID" RuleCombiningAlgId="POLCOMBINATION">
+        <Target/>
+[Policy End]
+      </Policy>
+[RBACRule]
+       <Rule RuleId="RID" Effect="REffect">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RSUBJECT</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Role" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+            </Subjects>
+           <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RRESOURCE</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="resource-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+            </Resources>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RACTION</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="action-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+	  RCondition
+        </Rule>	
+[MultiLevelRule]
+       <Rule RuleId="RID" Effect="REffect">
+         <Target>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RACTION</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="MLSDefaultAction" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+            <Condition>
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:RRelation">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <SubjectAttributeDesignator AttributeId="RSubAttributeId" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:integer-one-and-only">
+                  <ResourceAttributeDesignator AttributeId="RResAttributeId" DataType="http://www.w3.org/2001/XMLSchema#integer"/>
+                </Apply>
+              </Apply>
+            </Condition>
+        </Rule>
+[ABACRule]
+       <Rule RuleId="RID" Effect="REffect">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RSUBJECT</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="User" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+            </Subjects>
+           <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RRESOURCE</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="resource-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+            </Resources>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RACTION</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="action-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+	  RCondition
+        </Rule>	
+[WorkFlowRule]
+       <Rule RuleId="RID" Effect="REffect">
+         <Target>
+          <Subjects>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RSUBJECT</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="Role" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RSTATE</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="State" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+              </SubjectMatch>
+             </Subject>
+            </Subjects>
+           <Resources>
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RRESOURCE</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="resource-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ResourceMatch>
+              </Resource>
+            </Resources>
+            <Actions>
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">RACTION</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="action-class" DataType="http://www.w3.org/2001/XMLSchema#string"/>
+                </ActionMatch>
+              </Action>
+            </Actions>
+          </Target>
+	  RCondition
+        </Rule>
+[SubjectElement]
+            <Subject>
+              <SubjectMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:RTypeEqual">
+               <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue">RAttributeValue</AttributeValue>
+               <SubjectAttributeDesignator SubjectCategory="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" AttributeId="RAttributeId" DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue"/>
+              </SubjectMatch>
+             </Subject>
+[ResourceElement]
+              <Resource>
+                <ResourceMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:RTypeEqual">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue">RAttributeValue</AttributeValue>
+                  <ResourceAttributeDesignator AttributeId="RAttributeId" DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue"/>
+                </ResourceMatch>
+              </Resource>
+[ActionElement]
+              <Action>
+                <ActionMatch MatchId="urn:oasis:names:tc:xacml:1.0:function:RTypeEqual">
+                  <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue">RAttributeValue</AttributeValue>
+                  <ActionAttributeDesignator AttributeId="RAttributeId" DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue"/>
+                </ActionMatch>
+              </Action>
+[EnviromentElement]
+         <Condition>
+          <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:and">
+           RApplyElementSet
+          </Apply>
+         </Condition>
+[ApplyElement]
+              <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:RTypeEqual">
+                <Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:RTypeOfValue-one-and-only">
+                 <EnvironmentAttributeDesignator AttributeId="RAttributeId" DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue"/>
+                </Apply>
+                <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#RTypeOfValue">RAttributeValue</AttributeValue>
+              </Apply>
+[PolicyRule]
+       <Rule RuleId="RID" Effect="REffect">
+         <Target>
+SubjectElementSet
+ResourceElementSet
+ActionElementSet
+          </Target>
+	  RCondition
+        </Rule>
+[DenyFallThroughRule]
+       <Rule RuleId="DenyFallThroughRule" Effect="Deny">
+        <Target/>
+        </Rule> 

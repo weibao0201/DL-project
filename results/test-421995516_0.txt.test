@@ -1,0 +1,30 @@
+# ACTS Test Suite Generation: Wed Mar 14 09:55:45 CDT 2018
+#  * represents don't care value 
+
+# Degree of interaction coverage: 3
+# Number of parameters: 12
+# Maximum number of values per parameter: 2
+# Number of configurations: 21
+# ****************************************************
+manager,PatientA_OldMedicalRecords,PatientB_OldMedicalRecords,PatientC_OldMedicalRecords,View,Add,PatientA_PrivateNotes,PatientB_PrivateNotes,PatientC_PrivateNotes,PatientA_PersonalInfo,PatientC_PersonalInfo,PatientB_PersonalInfo
+"True","True","True","True","True","True","True","True","True","True","True","True"
+"True","True","False","False","False","False","False","False","False","False","False","False"
+"True","False","True","False","True","False","True","False","True","False","True","False"
+"True","False","False","True","False","True","False","True","False","True","False","True"
+"False","True","True","False","False","True","True","False","False","True","True","False"
+"False","True","False","True","True","False","False","True","True","False","False","True"
+"False","False","True","True","False","False","True","True","False","False","False","False"
+"False","False","False","False","True","True","False","False","True","True","True","True"
+"False","False","True","True","True","True","False","False","False","False","True","True"
+"True","True","False","False","True","True","True","True","False","False","False","False"
+"True","True","True","True","False","False","False","False","True","True","False","False"
+"False","False","False","False","False","False","True","True","True","True","True","True"
+"False","False","False","True","True","True","True","False","True","False","False","False"
+"True","True","True","False","True","True","False","True","True","True","False","False"
+"True","True","True","True","False","False","True","True","False","False","True","True"
+"False","False","False","False","False","False","False","False","False","True","True","False"
+"False","False","True","True","True","True","True","True","True","True","False","True"
+"True","True","False","True","True","True","False","False","True","True","True","True"
+"False","False","True","False","False","True","True","False","True","False","False","True"
+"False","True","False","True","True","False","False","True","False","True","True","False"
+"True","True","False","False","False","False","False","False","False","False","True","True"

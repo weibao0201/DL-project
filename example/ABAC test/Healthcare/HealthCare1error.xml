@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="HealthCare">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Manager">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;doctor_3"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Doctor">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;doctor_1"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;doctor_2"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;doctor_3"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;OldMedicalRecords">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientA_OldMedicalRecords"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientB_OldMedicalRecords"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientC_OldMedicalRecords"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="String;PatientPersonalInfor">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientA_PersonalInfo"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientC_PersonalInfo"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientB_PersonalInfo"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="String;PrivateNotes">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientA_PrivateNotes"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientB_PrivateNotes"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;PatientC_PrivateNotes"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;View"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Add"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="ManagerPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;Manager;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientA_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;Manager;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientB_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 12#Subject Attributes;Manager;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientC_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 13#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientA_PersonalInfo#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 14#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientB_PersonalInfo#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 15#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientC_PersonalInfo#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 16#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientA_PrivateNotes#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 17#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientB_PrivateNotes#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 18#Subject Attributes;Manager;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientC_PrivateNotes#Action Attributes;Action;String;View->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+                <ABAC Type="ABAC" Value="DoctorPolicy">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;OldMedicalRecords;String;PatientA_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PrivateNotes;String;PatientA_PrivateNotes#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PrivateNotes;String;PatientA_PrivateNotes#Action Attributes;Action;String;Add->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;OldMedicalRecords;String;PatientB_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 8#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PatientPersonalInfor;String;PatientB_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PrivateNotes;String;PatientB_PrivateNotes#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 10#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PrivateNotes;String;PatientB_PrivateNotes#Action Attributes;Action;String;Add->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 11#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientC_OldMedicalRecords#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 12#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientC_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 13#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientC_PrivateNotes#Action Attributes;Action;String;View->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 14#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientC_PrivateNotes#Action Attributes;Action;String;Add->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PatientPersonalInfor;String;PatientA_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 15#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;OldMedicalRecords;String;PatientB_OldMedicalRecords#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 16#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;OldMedicalRecords;String;PatientC_OldMedicalRecords->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 17#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PatientPersonalInfor;String;PatientC_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 18#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PatientPersonalInfor;String;PatientB_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 19#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PrivateNotes;String;PatientB_PrivateNotes->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 20#Subject Attributes;Doctor;String;doctor_1#Resource Attributes;PrivateNotes;String;PatientC_PrivateNotes->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 21#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;OldMedicalRecords;String;PatientA_OldMedicalRecords#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 22#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;OldMedicalRecords;String;PatientC_OldMedicalRecords#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 23#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PatientPersonalInfor;String;PatientA_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 24#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PatientPersonalInfor;String;PatientC_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 25#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PrivateNotes;String;PatientA_PrivateNotes->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 26#Subject Attributes;Doctor;String;doctor_2#Resource Attributes;PrivateNotes;String;PatientC_PrivateNotes->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 27#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientA_OldMedicalRecords#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 28#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;OldMedicalRecords;String;PatientB_OldMedicalRecords#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 29#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientA_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 30#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PatientPersonalInfor;String;PatientB_PersonalInfo#Action Attributes;Action;String;View->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 31#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientA_PrivateNotes->Deny"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 32#Subject Attributes;Doctor;String;doctor_3#Resource Attributes;PrivateNotes;String;PatientB_PrivateNotes->Deny"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY"/>
+    </Property>
+</ACPT>

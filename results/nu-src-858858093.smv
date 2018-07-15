@@ -1,0 +1,100 @@
+
+
+MODULE main
+
+	--	 variables
+	--	 NA is a non-applicable decision, which would be an initial decision before running NuSMV verification on a model
+	--	 None indicates a subject, which is not assigned to any user/role subject
+
+VAR
+	decision	: { Pending , Permit, Deny, Non-applicable};
+
+	Manager	: { dummy	,	manager	};	
+	Doctor	: { dummy	,	doctor_1	,	doctor_2	,	doctor_3	};	
+	OldMedicalRecords	: { dummy	,	PatientA_OldMedicalRecords	,	PatientB_OldMedicalRecords	,	PatientC_OldMedicalRecords	};	
+	PatientPersonalInfor	: { dummy	,	PatientA_PersonalInfo	,	PatientC_PersonalInfo	,	PatientB_PersonalInfo	};	
+	PrivateNotes	: { dummy	,	PatientA_PrivateNotes	,	PatientB_PrivateNotes	,	PatientC_PrivateNotes	};	
+	MLSDefaultAction	: { dummy	,	read	,	write	};	
+	Action	: { dummy	,	View	,	Add	};	
+
+
+	Process_State	: {1,2,3,4,5,6,7,8,9,10};
+	decision1 :	{ Pending , Permit, Deny, Non-applicable}	;	
+	decision2 :	{ Pending , Permit, Deny, Non-applicable}	;	
+
+
+ASSIGN
+ init (decision1) := Pending ;
+ next (decision1) := case
+		Manager = manager	&	OldMedicalRecords = PatientA_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Manager = manager	&	OldMedicalRecords = PatientB_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Manager = manager	&	OldMedicalRecords = PatientC_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Manager = manager	&	PrivateNotes = PatientA_PrivateNotes	&	Action = View	:	Deny	;	
+		Manager = manager	&	PrivateNotes = PatientB_PrivateNotes	&	Action = View	:	Deny	;	
+		Manager = manager	&	PatientPersonalInfor = PatientA_PersonalInfo	&	Action = View	:	Permit	;	
+		Manager = manager	&	PatientPersonalInfor = PatientB_PersonalInfo	&	Action = View	:	Permit	;	
+		Manager = manager	&	PatientPersonalInfor = PatientC_PersonalInfo	&	Action = View	:	Permit	;	
+		Manager = manager	&	PrivateNotes = PatientC_PrivateNotes	&	Action = View	:	Deny	;	
+		1		: Non-applicable;
+		esac;
+ init (decision2) := Pending ;
+ next (decision2) := case
+		Doctor = doctor_1	&	OldMedicalRecords = PatientA_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Doctor = doctor_1	&	PrivateNotes = PatientA_PrivateNotes	&	Action = View	:	Permit	;	
+		Doctor = doctor_1	&	PrivateNotes = PatientA_PrivateNotes	&	Action = Add	:	Permit	;	
+		Doctor = doctor_2	&	OldMedicalRecords = PatientB_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Doctor = doctor_2	&	PatientPersonalInfor = PatientB_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_2	&	PrivateNotes = PatientB_PrivateNotes	&	Action = View	:	Permit	;	
+		Doctor = doctor_2	&	PrivateNotes = PatientB_PrivateNotes	&	Action = Add	:	Permit	;	
+		Doctor = doctor_3	&	OldMedicalRecords = PatientC_OldMedicalRecords	&	Action = View	:	Permit	;	
+		Doctor = doctor_3	&	PatientPersonalInfor = PatientC_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_3	&	PrivateNotes = PatientC_PrivateNotes	&	Action = View	:	Permit	;	
+		Doctor = doctor_3	&	PrivateNotes = PatientC_PrivateNotes	&	Action = Add	:	Permit	;	
+		Doctor = doctor_1	&	PatientPersonalInfor = PatientA_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_1	&	OldMedicalRecords = PatientB_OldMedicalRecords	&	Action = View	:	Deny	;	
+		Doctor = doctor_1	&	OldMedicalRecords = PatientC_OldMedicalRecords	:	Deny	;	
+		Doctor = doctor_1	&	PatientPersonalInfor = PatientC_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_1	&	PatientPersonalInfor = PatientB_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_1	&	PrivateNotes = PatientB_PrivateNotes	:	Deny	;	
+		Doctor = doctor_1	&	PrivateNotes = PatientC_PrivateNotes	:	Deny	;	
+		Doctor = doctor_2	&	OldMedicalRecords = PatientA_OldMedicalRecords	&	Action = View	:	Deny	;	
+		Doctor = doctor_2	&	OldMedicalRecords = PatientC_OldMedicalRecords	&	Action = View	:	Deny	;	
+		Doctor = doctor_2	&	PatientPersonalInfor = PatientA_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_2	&	PatientPersonalInfor = PatientC_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_2	&	PrivateNotes = PatientA_PrivateNotes	:	Deny	;	
+		Doctor = doctor_2	&	PrivateNotes = PatientC_PrivateNotes	:	Deny	;	
+		Doctor = doctor_3	&	OldMedicalRecords = PatientA_OldMedicalRecords	&	Action = View	:	Deny	;	
+		Doctor = doctor_3	&	OldMedicalRecords = PatientB_OldMedicalRecords	&	Action = View	:	Deny	;	
+		Doctor = doctor_3	&	PatientPersonalInfor = PatientA_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_3	&	PatientPersonalInfor = PatientB_PersonalInfo	&	Action = View	:	Deny	;	
+		Doctor = doctor_3	&	PrivateNotes = PatientA_PrivateNotes	:	Deny	;	
+		Doctor = doctor_3	&	PrivateNotes = PatientB_PrivateNotes	:	Deny	;	
+		1		: Non-applicable;
+		esac;
+
+	init (decision) := Pending ;
+	next (decision) := case
+	decision1 = Permit:	Permit	;
+	decision2 = Permit:	Permit	;
+	decision1 = Deny:	Deny	;
+	decision2 = Deny:	Deny	;
+	decision1 = Non-applicable:	Non-applicable	;
+	decision2 = Non-applicable:	Non-applicable	;
+
+		1			: Deny;
+		esac;
+
+
+	next (Manager) :=	Manager	;	
+	next (Doctor) :=	Doctor	;	
+	next (OldMedicalRecords) :=	OldMedicalRecords	;	
+	next (PatientPersonalInfor) :=	PatientPersonalInfor	;	
+	next (PrivateNotes) :=	PrivateNotes	;	
+	next (MLSDefaultAction) :=	MLSDefaultAction	;	
+	next (Action) :=	Action	;	
+
+
+
+
+
+

@@ -1,0 +1,416 @@
+
+## The test result for ABAC#ManagerPolicy
+
+
+1: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+2: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+3: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+4: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)->decision = Permit
+
+
+5: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)->decision = Deny
+
+
+6: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)->decision = Non-applicable
+
+
+7: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+8: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+9: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+10: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+11: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+12: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+13: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+14: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+15: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+16: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Permit
+
+
+17: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+18: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Non-applicable
+
+
+19: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)->decision = Permit
+
+
+20: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)->decision = Deny
+
+
+21: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)->decision = Non-applicable
+
+
+22: (Manager = manager)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+23: (Manager = manager)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+24: (Manager = manager)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+25: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+26: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+27: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+28: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+29: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+30: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+31: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+32: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+33: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+34: (OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+35: (OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+36: (OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+37: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Permit
+
+
+38: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+39: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Non-applicable
+
+
+40: (OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+41: (OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+42: (OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+43: (OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+44: (OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+45: (OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+46: (Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+47: (Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+48: (Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+49: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+50: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+51: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+52: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)->decision = Permit
+
+
+53: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)->decision = Deny
+
+
+54: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)->decision = Non-applicable
+
+
+55: (OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+56: (OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+57: (OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+58: (OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+59: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+60: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+61: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+62: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+63: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+64: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+65: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+66: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+67: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+68: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+69: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+70: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+71: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+72: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+73: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+74: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+75: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+76: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+77: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+78: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+79: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+80: (Manager = manager)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+81: (Manager = manager)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+82: (Manager = manager)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+83: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+84: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+85: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+86: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+87: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+88: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+89: (Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+90: (Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+91: (Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+92: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Permit
+
+
+93: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+94: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Non-applicable
+
+
+95: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+96: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+97: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+98: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+99: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+100: (Manager = manager)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+101: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+102: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+103: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+104: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+105: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+106: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+107: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+108: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+109: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+110: (OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)->decision = Deny
+
+
+111: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+112: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+113: (OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+114: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Permit
+
+
+115: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+116: (Manager = manager)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Non-applicable
+
+
+117: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+118: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+119: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+120: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+121: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+122: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+123: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+124: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+125: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+126: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Permit
+
+
+127: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny
+
+
+128: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(Action = Add)&(PrivateNotes = PatientA_PrivateNotes)&(PrivateNotes = PatientB_PrivateNotes)&(PrivateNotes = PatientC_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Non-applicable
+
+
+129: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+130: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+131: (OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+132: (Manager = manager)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Permit
+
+
+133: (Manager = manager)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Deny
+
+
+134: (Manager = manager)&(Action = View)&(PrivateNotes = PatientA_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientB_PersonalInfo)->decision = Non-applicable
+
+
+135: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Permit
+
+
+136: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Deny
+
+
+137: (Manager = manager)&(OldMedicalRecords = PatientA_OldMedicalRecords)&(OldMedicalRecords = PatientB_OldMedicalRecords)&(OldMedicalRecords = PatientC_OldMedicalRecords)&(Action = View)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)&(PatientPersonalInfor = PatientC_PersonalInfo)->decision = Non-applicable
+
+
+138: (OldMedicalRecords = PatientB_OldMedicalRecords)&(Action = Add)&(PrivateNotes = PatientB_PrivateNotes)&(PatientPersonalInfor = PatientA_PersonalInfo)->decision = Deny

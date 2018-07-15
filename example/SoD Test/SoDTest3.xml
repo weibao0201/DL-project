@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="SoDTest3">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Student">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Ang"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Michael"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Wei"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;File">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;FileOne"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;FileTwo"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;FileThree"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="PolicyOne">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Rule 1#Subject Attributes;Student;String;Ang#Resource Attributes;File;String;FileOne#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 2#Subject Attributes;Student;String;Ang#Resource Attributes;File;String;FileTwo#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 3#Subject Attributes;Student;String;Ang#Resource Attributes;File;String;FileThree#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 4#Subject Attributes;Student;String;Michael#Resource Attributes;File;String;FileOne#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 5#Subject Attributes;Student;String;Michael#Resource Attributes;File;String;FileTwo#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 6#Subject Attributes;Student;String;Michael#Resource Attributes;File;String;FileThree#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 7#Subject Attributes;Student;String;Wei#Resource Attributes;File;String;FileOne#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 8#Subject Attributes;Student;String;Wei#Resource Attributes;File;String;FileTwo#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Rule 9#Subject Attributes;Student;String;Wei#Resource Attributes;File;String;FileThree#Action Attributes;MLSDefaultAction;String;read->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <SecurityConstraints>
+        <ROOT Type="ROOT" Value="SOD">
+            <Sod_Subjects_Values Type="Sod_Subjects_Values" Value="Student;Ang"/>
+            <Sod_Subjects_Values Type="Sod_Subjects_Values" Value="Student;Michael"/>
+            <Sod_Subjects_Values Type="Sod_Subjects_Values" Value="Student;Wei"/>
+            <Sod_Resources_Values Type="Sod_Resources_Values" Value="File;FileOne"/>
+            <Sod_Resources_Values Type="Sod_Resources_Values" Value="File;FileTwo"/>
+            <Sod_Resources_Values Type="Sod_Resources_Values" Value="File;FileThree"/>
+        </ROOT>
+    </SecurityConstraints>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable">
+            <COMBINATION Type="COMBINATION" Value="ABAC#PolicyOne"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Ang) &amp; (File = FileOne) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Michael) &amp; (File = FileTwo) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Wei) &amp; (File = FileThree) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Ang) &amp; (File = FileTwo) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Michael) &amp; (File = FileOne) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+            <PROPERTY Type="PROPERTY" Value="SPEC (Student = Wei) &amp; (File = FileTwo) &amp; (MLSDefaultAction = read)  -> decision =  Permit   [Student, File, MLSDefaultAction]"/>
+        </ROOT>
+    </Property>
+</ACPT>

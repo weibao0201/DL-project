@@ -1,0 +1,51 @@
+[System]
+Name: Fireeye Input
+
+
+
+[Parameter]
+-- The list of Federal
+	Federal (enum) :True,False
+
+-- The list of State
+	State (enum) :True,False
+
+-- The list of 2
+	2 (enum) :True,False
+
+-- The list of 3
+	3 (enum) :True,False
+
+-- The list of 1
+	1 (enum) :True,False
+
+-- The list of 0
+	0 (enum) :True,False
+
+-- The list of True
+	True (enum) :True,False
+
+-- The list of False
+	False (enum) :True,False
+
+-- The list of ISE
+	ISE (enum) :True,False
+
+-- The list of SLT
+	SLT (enum) :True,False
+
+-- The list of True
+	True (enum) :True,False
+
+-- The list of False
+	False (enum) :True,False
+
+[Relation]
+
+
+[Constraint]
+
+
+[Misc]
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="Multilevel Basic">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;Student_A">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;1"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Integer;TA">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Integer;2"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;R_File1">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;1"/>
+                </Resource_Attributes>
+                <Resource_Attributes Type="Resource Attributes" Value="Integer;R_File2">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="Integer;2"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="String;MLSDefaultAction">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;read"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;write"/>
+                </Action_Attributes>
+                <Action_Attributes Type="Action Attributes" Value="String;Action">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="String;Read"/>
+                </Action_Attributes>
+            </Actions>
+            <Environments Type="Environments" Value="Environments"/>
+            <Inheritance Type="Inheritance" Value="Inheritance"/>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL">
+                <MULTILEVEL Type="MULTILEVEL" Value="ML">
+                    <MULTILEVELSUBJECTLEVELS
+                        Type="MULTILEVELSUBJECTLEVELS" Value="Subject Levels">
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;TA;Integer#2"/>
+                        <MULTILEVELSUBJECTLEVELS
+                            Type="MULTILEVELSUBJECTLEVELS" Value="Subject Attributes;Student_A;Integer#1"/>
+                    </MULTILEVELSUBJECTLEVELS>
+                    <MULTILEVELRESOURCELEVELS
+                        Type="MULTILEVELRESOURCELEVELS" Value="Resource Levels">
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;R_File2;Integer#2"/>
+                        <MULTILEVELRESOURCELEVELS
+                            Type="MULTILEVELRESOURCELEVELS" Value="Resource Attributes;R_File1;Integer#1"/>
+                    </MULTILEVELRESOURCELEVELS>
+                    <MULTILEVELRULES Type="MULTILEVELRULES" Value="Rules: First-applicable">
+                        <MULTILEVELRULES Type="MULTILEVELRULES" Value="no read up"/>
+                    </MULTILEVELRULES>
+                </MULTILEVEL>
+            </MULTILEVEL>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC"/>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="Policies: First-applicable"/>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY"/>
+    </Property>
+</ACPT>

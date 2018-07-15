@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ACPT>
+    <Target>
+        <Root Type="Root" Value="DNI_demo2">
+            <Subjects Type="Subjects" Value="Subjects">
+                <Subject_Attributes Type="Subject Attributes" Value="String;Government_Category">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Federal"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;State"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;CFR_Part_23_Training">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Current"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;Expired_None"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="String;Assurance_Level">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;2"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;3"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;1"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="String;0"/>
+                </Subject_Attributes>
+                <Subject_Attributes Type="Subject Attributes" Value="Boolean;Remote_Access">
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;True"/>
+                    <Subject_Attribute_Values
+                        Type="Subject Attribute Values" Value="Boolean;False"/>
+                </Subject_Attributes>
+            </Subjects>
+            <Resources Type="Resources" Value="Resources">
+                <Resource_Attributes Type="Resource Attributes" Value="String;Privacy_Category">
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;ISE"/>
+                    <Resource_Attribute_Values
+                        Type="Resource Attribute Values" Value="String;SLT"/>
+                </Resource_Attributes>
+            </Resources>
+            <Actions Type="Actions" Value="Actions">
+                <Action_Attributes Type="Action Attributes" Value="Boolean;read">
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="Boolean;True"/>
+                    <Action_Attribute_Values
+                        Type="Action Attribute Values" Value="Boolean;False"/>
+                </Action_Attributes>
+            </Actions>
+        </Root>
+    </Target>
+    <Model>
+        <ROOT Type="ROOT" Value="Model">
+            <RBAC Type="RBAC" Value="RBAC"/>
+            <MULTILEVEL Type="MULTILEVEL" Value="MULTILEVEL"/>
+            <WORKFLOW Type="WORKFLOW" Value="WORKFLOW"/>
+            <ABAC Type="ABAC" Value="ABAC">
+                <ABAC Type="ABAC" Value="Policy A">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;CFR_Part_23_Training;String;Current#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;CFR_Part_23_Training;String;Current#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;CFR_Part_23_Training;String;Expired_None#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;CFR_Part_23_Training;String;Current#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;CFR_Part_23_Training;String;Current#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;CFR_Part_23_Training;String;Expired_None#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+                <ABAC Type="ABAC" Value="Policy B">
+                    <ABACRULES Type="ABACRULES" Value="Rules: First-applicable">
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;ISE#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;Federal#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;Assurance_Level;String;3#Subject Attributes;Remote_Access;Boolean;True#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                        <ABACRULES Type="ABACRULES" Value="Subject Attributes;Government_Category;String;State#Subject Attributes;Assurance_Level;String;2#Subject Attributes;Remote_Access;Boolean;False#Resource Attributes;Privacy_Category;String;SLT#Action Attributes;read;Boolean;True->Permit"/>
+                    </ABACRULES>
+                </ABAC>
+            </ABAC>
+        </ROOT>
+    </Model>
+    <Combinations>
+        <ROOT Type="ROOT" Value="COMBINATION">
+            <COMBINATION Type="COMBINATION" Value="ABAC#Policy A"/>
+            <COMBINATION Type="COMBINATION" Value="ABAC#Policy B"/>
+        </ROOT>
+    </Combinations>
+    <Property>
+        <ROOT Type="ROOT" Value="PROPERTY">
+            <PROPERTY Type="PROPERTY" Value="SPEC (Government_Category = State) &amp; (Assurance_Level = 3) &amp; (Remote_Access = False) &amp; (Privacy_Category = SLT) &amp; (read = True)  -> decision =  Permit"/>
+        </ROOT>
+    </Property>
+</ACPT>
